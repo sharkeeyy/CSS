@@ -1,0 +1,121 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: black;
+}
+
+.container {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container .ring {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 4px solid transparent;
+  border-top: 4px solid aqua;
+  margin: -30px;
+  animation: animate 4s linear infinite;
+}
+
+@keyframes animate {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.container .ring::before {
+  content: '';
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  top: 12px;
+  right: 12px;
+  background: aqua;
+  border-radius: 50%;
+  box-shadow: 0 0 0 5px #24ecff33,
+    0 0 0 10px #24ecff22,
+    0 0 0 15px #24ecff11;
+}
+
+.container .ring:nth-child(2) {
+  animation: animate2 4s linear infinite;
+  animation-delay: -1s;
+  border-top: 4px solid transparent;
+  border-left: 4px solid #93ff2d;
+}
+
+.container .ring:nth-child(2)::before{
+  content: '';
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  top: initial;
+  bottom: 12px;
+  left: 12px;
+  background: #93ff2d;
+  border-radius: 50%;
+  box-shadow: 0 0 0 5px #93ff2d33,
+    0 0 0 10px #93ff2d22,
+    0 0 0 15px #93ff2d11;
+}
+
+@keyframes animate2 {
+  0% {
+    transform: rotate(360deg);
+  }
+
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+.container .ring:nth-child(3) {
+  animation: animate2 4s linear infinite;
+  animation-delay: -3s;
+  position: absolute;
+  top: -66.66px;
+  border-left: 4px solid #e41c78;
+  border-top: 4px solid transparent;
+}
+
+.container .ring:nth-child(3)::before{
+  content: '';
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  top: initial;
+  bottom: 12px;
+  left: 12px;
+  background: #e41c78;
+  border-radius: 50%;
+  box-shadow: 0 0 0 5px #e41c7833,
+    0 0 0 10px #e41c7822,
+    0 0 0 15px #e41c7811;
+}
+
+.container p {
+  position: absolute;
+  color: white;
+  font-size: 1.5em;
+  font-family: Arial, Helvetica, sans-serif;
+  bottom: -100px;
+  letter-spacing: 0.1em;
+}
